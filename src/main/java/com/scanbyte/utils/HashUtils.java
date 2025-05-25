@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 public class HashUtils {
 
     public static String generateFileHash(File file) throws IOException, NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        MessageDigest digest = MessageDigest.getInstance("MD5");
         try (FileInputStream fis = new FileInputStream(file)) {
             byte[] byteArray = new byte[1024];
             int bytesCount;

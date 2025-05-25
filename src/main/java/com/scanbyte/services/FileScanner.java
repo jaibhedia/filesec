@@ -23,13 +23,19 @@ public class FileScanner {
         try {
             String fileHash = HashUtils.generateFileHash(file);
             List<ThreatSignature> signatures = detectionEngine.getThreatSignatures();
+            
+            // Show the calculated hash for debugging
+            System.out.println("File: " + file.getName() + ", Hash: " + fileHash);
+            
             for (ThreatSignature signature : signatures) {
+                System.out.println("Comparing with signature: " + signature.getName() + ", Hash: " + signature.getHash());
                 if (signature.getHash().equals(fileHash)) {
                     return new ScanResult(true, "Threat detected: " + signature.getName());
                 }
             }
-            return new ScanResult(false, "No threats detected.");
+            return new ScanResult(false, "No threats detected. File hash: " + fileHash);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ScanResult(false, "Error reading file: " + e.getMessage());
         }
     }

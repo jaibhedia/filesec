@@ -19,6 +19,7 @@ public class ScanController {
     @FXML
     private Button scanButton;
 
+
     @FXML
     private TextArea resultArea;
 
@@ -61,7 +62,7 @@ public class ScanController {
         if (result.isThreatDetected()) {
             resultArea.setText("Threat Detected: " + result.getThreatDetails());
         } else {
-            resultArea.setText("No Threat Detected.");
+            resultArea.setText("No Threat Detected: " + result.getMessage());
         }
     }
 
