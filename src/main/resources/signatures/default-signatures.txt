@@ -1,0 +1,5 @@
+malware_signature_1,hash_value_1
+malware_signature_2,hash_value_2
+malware_signature_3,hash_value_3
+malware_signature_4,hash_value_4
+malware_signature_5,hash_value_5
